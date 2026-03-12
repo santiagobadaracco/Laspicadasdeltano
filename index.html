@@ -103,16 +103,18 @@ class="bg-blue-600 px-6 py-3 rounded-lg font-bold">
 Llamar
 
 </a>
+
 <a href="https://www.instagram.com/laspicadasdeltanook/"
 class="floating-instagram"
 target="_blank"
 style="position:fixed; bottom:160px; right:20px; background:#E1306C; padding:16px; border-radius:50%; z-index:46;">
 <i data-lucide="instagram"></i>
 </a>
+
 </div>
 
 <div class="mt-4 text-lg">
-<span id="estadoHorario"></span>
+Estado: <span id="estadoHorario"></span>
 </div>
 
 </div>
@@ -214,16 +216,38 @@ Fiambres artesanales
 
 <!-- ARTISTAS -->
 
-<section class="py-16 bg-gray-900">
-
-<h2 class="text-3xl font-bold text-center mb-10">
-Próximos Artistas
-</h2>
-
-<div id="artistas" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-
-</div>
-
+<section id="proximos-artistas" class="py-24 bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-12 text-slate-100">Próximos Artistas</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      
+      <!-- Sergio Torres -->
+      <div class="artist-card rounded-xl overflow-hidden shadow-lg">
+        <img src="img/Sergio Torres 13 de marzo.jpeg" alt="Sergio Torres 13 de marzo" class="gallery-image">
+        <p class="mt-2 text-center font-semibold text-slate-100">Sergio Torres – 13 de marzo</p>
+      </div>
+      
+      <!-- Jimmy y su combo negro -->
+      <div class="artist-card rounded-xl overflow-hidden shadow-lg">
+        <img src="img/Jimmy y su combo negro  11 de abril.jpeg" alt="Jimmy y su combo negro 11 de abril" class="gallery-image">
+        <p class="mt-2 text-center font-semibold text-slate-100">Jimmy y su combo negro – 11 de abril</p>
+      </div>
+      
+      <!-- Chili Fernandez -->
+      <div class="artist-card rounded-xl overflow-hidden shadow-lg">
+        <img src="img/Chili Fernandez 18 de abril.jpeg" alt="Chili Fernandez 18 de abril" class="gallery-image">
+        <p class="mt-2 text-center font-semibold text-slate-100">Chili Fernandez – 18 de abril</p>
+      </div>
+      
+      <!-- Daniel Agostini -->
+      <div class="artist-card rounded-xl overflow-hidden shadow-lg">
+        <img src="img/Daniel Agostini 25 de abril.jpeg" alt="Daniel Agostini 25 de abril" class="gallery-image">
+        <p class="mt-2 text-center font-semibold text-slate-100">Daniel Agostini – 25 de abril</p>
+      </div>
+      
+    </div>
+  </div>
 </section>
 
 <!-- RESEÑAS -->
@@ -435,6 +459,6 @@ contenedor.innerHTML+=`
 </script>
 
 </body>
-
 </html>
+
 
