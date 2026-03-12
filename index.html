@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Las Picadas del Tano | Picadas en Piñeyro</title>
+
+<meta name="description" content="Las mejores picadas en Piñeyro. Reservá mesa en Las Picadas del Tano.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+body{
+background:#111;
+color:white;
+font-family:sans-serif;
+}
+
+.hero{
+height:500px;
+background-image:url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.overlay{
+background:rgba(0,0,0,0.6);
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.floating-wa{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#22c55e;
+padding:16px;
+border-radius:50%;
+}
+
+.floating-phone{
+position:fixed;
+bottom:90px;
+right:20px;
+background:#3b82f6;
+padding:16px;
+border-radius:50%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="overlay">
+
+<h1 class="text-4xl md:text-6xl font-bold">
+
+<span class="text-green-500">Las</span>
+<span class="text-white">Picadas</span>
+<span class="text-red-500">del</span>
+<span class="text-green-500">Tano</span>
+
+</h1>
+
+<p class="mt-4 text-xl">
+Las mejores picadas para compartir en Piñeyro
+</p>
+
+<p class="mt-2 text-yellow-400">
+⭐ 4.0 en Google · 2479 opiniones
+</p>
+
+<div class="mt-6 flex gap-4">
+
+<a href="https://wa.me/541133541614?text=Hola%20quiero%20reservar%20una%20mesa"
+class="bg-green-600 px-6 py-3 rounded-lg font-bold">
+
+Reservar por WhatsApp
+
+</a>
+
+<a href="tel:1133541614"
+class="bg-blue-600 px-6 py-3 rounded-lg font-bold">
+
+Llamar
+
+</a>
+
+</div>
+
+<div class="mt-4 text-lg">
+Estado: <span id="estadoHorario"></span>
+</div>
+
+</div>
+
+</section>
+
+<!-- QUIENES SOMOS -->
+
+<section class="py-16 max-w-6xl mx-auto px-6 text-center">
+
+<h2 class="text-3xl font-bold mb-6">
+Quiénes somos
+</h2>
+
+<p class="text-lg text-gray-300 max-w-3xl mx-auto">
+
+En <strong>Las Picadas del Tano</strong> ofrecemos una experiencia gastronómica basada en la tradición de compartir buena comida. Nuestro restaurante en Piñeyro es un punto de encuentro donde amigos, familias y parejas disfrutan de picadas abundantes, fiambres seleccionados y un ambiente cálido.
+
+Creemos que una buena mesa se disfruta mejor cuando se comparte, por eso trabajamos con productos de calidad y buscamos que cada visita se convierta en un momento especial.
+
+</p>
+
+<div class="grid md:grid-cols-3 gap-8 mt-12">
+
+<div class="bg-gray-900 p-6 rounded-lg">
+<h3 class="font-bold text-xl mb-2">Productos frescos</h3>
+<p class="text-gray-400">Fiambres y quesos seleccionados para cada picada.</p>
+</div>
+
+<div class="bg-gray-900 p-6 rounded-lg">
+<h3 class="font-bold text-xl mb-2">Ambiente familiar</h3>
+<p class="text-gray-400">Un espacio ideal para disfrutar con amigos.</p>
+</div>
+
+<div class="bg-gray-900 p-6 rounded-lg">
+<h3 class="font-bold text-xl mb-2">Tradición</h3>
+<p class="text-gray-400">Sabores pensados para compartir.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- MENU -->
+
+<section class="py-16 text-center">
+
+<h2 class="text-3xl font-bold mb-10">
+Menú Destacado
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="bg-gray-900 p-6 rounded-lg">
+
+<img src="https://images.unsplash.com/photo-1604908177522-4025a9b02ab7" class="rounded-lg mb-4">
+
+<h3 class="font-bold">
+Picada clásica
+</h3>
+
+<p class="text-gray-400">
+Fiambres, quesos y acompañamientos
+</p>
+
+</div>
+
+<div class="bg-gray-900 p-6 rounded-lg">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947" class="rounded-lg mb-4">
+
+<h3 class="font-bold">
+Picada especial
+</h3>
+
+<p class="text-gray-400">
+Selección premium de la casa
+</p>
+
+</div>
+
+<div class="bg-gray-900 p-6 rounded-lg">
+
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" class="rounded-lg mb-4">
+
+<h3 class="font-bold">
+Tabla de fiambres
+</h3>
+
+<p class="text-gray-400">
+Fiambres artesanales
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ARTISTAS -->
+
+<section class="py-16 bg-gray-900">
+
+<h2 class="text-3xl font-bold text-center mb-10">
+Próximos Artistas
+</h2>
+
+<div id="artistas" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+
+</div>
+
+</section>
+
+<!-- RESEÑAS -->
+
+<section class="py-16">
+
+<h2 class="text-3xl font-bold text-center mb-10">
+Opiniones de clientes
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+
+<div class="bg-gray-900 p-6 rounded-lg">
+
+<p class="text-yellow-400">★★★★★</p>
+
+<p class="text-gray-300 mt-2">
+Excelente lugar para comer picadas abundantes. Muy buen ambiente y atención.
+</p>
+
+<p class="mt-4 font-bold">
+— Cliente de Google
+</p>
+
+</div>
+
+<div class="bg-gray-900 p-6 rounded-lg">
+
+<p class="text-yellow-400">★★★★★</p>
+
+<p class="text-gray-300 mt-2">
+Las tablas son enormes y los fiambres de primera calidad.
+</p>
+
+<p class="mt-4 font-bold">
+— Reseña de Google
+</p>
+
+</div>
+
+<div class="bg-gray-900 p-6 rounded-lg">
+
+<p class="text-yellow-400">★★★★☆</p>
+
+<p class="text-gray-300 mt-2">
+Muy buen restaurante para ir con amigos.
+</p>
+
+<p class="mt-4 font-bold">
+— Cliente habitual
+</p>
+
+</div>
+
+</div>
+
+<div class="text-center mt-10">
+
+<a href="https://www.google.com/search?q=Las+Picadas+del+Tano"
+target="_blank"
+class="bg-red-600 px-6 py-3 rounded-lg font-bold">
+
+Ver reseñas en Google
+
+</a>
+
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section class="py-16 text-center bg-gray-900">
+
+<h2 class="text-3xl font-bold mb-6">
+Contacto
+</h2>
+
+<p>
+Méjico 590, Piñeyro
+</p>
+
+<p class="mt-2">
+Tel: 011 3354-1614
+</p>
+
+<a href="https://maps.google.com/?q=Mexico+590+Piñeyro"
+target="_blank"
+class="mt-6 inline-block bg-red-600 px-6 py-3 rounded-lg">
+
+Ver en Google Maps
+
+</a>
+
+</section>
+
+<!-- BOTONES FLOTANTES -->
+
+<a href="https://wa.me/541133541614?text=Hola%20quiero%20reservar%20una%20mesa"
+class="floating-wa"
+target="_blank">
+
+<i data-lucide="message-circle"></i>
+
+</a>
+
+<a href="tel:1133541614"
+class="floating-phone">
+
+<i data-lucide="phone"></i>
+
+</a>
+
+<script>
+
+lucide.createIcons()
+
+</script>
+
+<script>
+
+function actualizarHorario(){
+
+const ahora = new Date()
+
+const dia = ahora.getDay()
+const hora = ahora.getHours()
+const minutos = ahora.getMinutes()
+
+let horaActual = hora + minutos/60
+
+if(horaActual < 6){
+horaActual += 24
+}
+
+const apertura = 18
+const cierre = 25.5
+
+const estado = document.getElementById("estadoHorario")
+
+if(dia >= 3 && dia <= 6){
+
+if(horaActual >= apertura && horaActual <= cierre){
+
+estado.innerHTML = "🟢 Abierto ahora · Cierra 01:30"
+
+}else{
+
+estado.innerHTML = "🔴 Cerrado · Abre 18:00"
+
+}
+
+}else{
+
+estado.innerHTML = "🔴 Cerrado hoy"
+
+}
+
+}
+
+actualizarHorario()
+
+</script>
+
+<script>
+
+const artistas = [
+
+{
+nombre:"La Banda del Sur",
+fecha:"Viernes 12 Julio",
+imagen:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a"
+},
+
+{
+nombre:"Dúo Tango Porteño",
+fecha:"Sábado 13 Julio",
+imagen:"https://images.unsplash.com/photo-1511379938547-c1f69419868d"
+},
+
+{
+nombre:"Noche de Rock",
+fecha:"Viernes 19 Julio",
+imagen:"https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2"
+}
+
+]
+
+const contenedor = document.getElementById("artistas")
+
+artistas.forEach(a=>{
+
+contenedor.innerHTML+=`
+
+<div class="bg-gray-800 p-4 rounded-lg text-center">
+
+<img src="${a.imagen}" class="rounded-lg mb-4">
+
+<h3 class="font-bold">${a.nombre}</h3>
+
+<p>${a.fecha}</p>
+
+</div>
+
+`
+
+})
+
+</script>
+
+</body>
+</html>
