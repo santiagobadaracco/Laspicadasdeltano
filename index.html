@@ -59,6 +59,26 @@ padding:16px;
 border-radius:50%;
 }
 
+.floating-instagram{
+position:fixed;
+bottom:160px;
+right:20px;
+background:#E1306C;
+padding:16px;
+border-radius:50%;
+z-index:50;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.floating-instagram:hover{
+transform:scale(1.08);
+background:#c72c61;
+}  
+  
 </style>
 
 </head>
@@ -105,9 +125,10 @@ Llamar
 
 <a href="https://www.instagram.com/laspicadasdeltanook/"
 class="floating-instagram"
-target="_blank"
-style="position:fixed; bottom:160px; right:20px; background:#E1306C; padding:16px; border-radius:50%; z-index:46;">
+target="_blank">
+
 <i data-lucide="instagram"></i>
+
 </a>
 
 </div>
@@ -544,10 +565,13 @@ class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-5
 function cerrarPopup() {
   document.getElementById("popupSolidario").style.display = "none";
 }
-
+  
+svg{
+width:24px;
+height:24px;
+stroke-width:2.2;
+}
 </script>
-</script>
-
 </body>
 </html>
 
