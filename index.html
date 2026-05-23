@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 
@@ -78,6 +78,13 @@ transition:0.3s;
 transform:scale(1.08);
 background:#c72c61;
 }  
+
+svg{
+width:24px;
+height:24px;
+stroke-width:2.2;
+color:white;
+}
   
 </style>
 
@@ -93,10 +100,6 @@ background:#c72c61;
 
 <h1 class="text-4xl md:text-6xl font-bold text-center">
   <span style="color:#22c55e">LAS PIC</span><span style="color:white">ADAS</span> <span style="color:white">D</span><span style="color:#ef4444">EL TANO</span>
-</h1>
-
-</h1>
-
 </h1>
 
 <p class="mt-4 text-xl">
@@ -494,33 +497,70 @@ actualizarHorario();
 
 <script>
 
-const contenedor = document.getElementById("artistas")
+lucide.createIcons()
 
-artistas.forEach(a=>{
+function actualizarHorario() {
 
-contenedor.innerHTML+=`
+    const ahora = new Date();
+    const dia = ahora.getDay();
+    const hora = ahora.getHours();
+    const minutos = ahora.getMinutes();
 
-<div class="bg-gray-800 p-4 rounded-lg text-center">
+    let horaActual = hora + minutos / 60;
 
-<img src="${a.imagen}" class="rounded-lg mb-4">
+    const estado = document.getElementById("estadoHorario");
 
-<h3 class="font-bold">${a.nombre}</h3>
+    let mensaje = "";
 
-<p>${a.fecha}</p>
+    if (dia === 4 || dia === 0) {
 
-</div>
+        const apertura = 18;
+        const cierre = 23;
 
-`
+        if (horaActual >= apertura && horaActual < cierre) {
+            mensaje = `🟢 Abierto ahora · Cierra 23:00`;
+        } else {
+            mensaje = "🔴 Cerrado · Abre 18:00";
+        }
 
-})
+    } else if (dia === 5 || dia === 6) {
+
+        const apertura = 18;
+        const cierre = 27;
+
+        let horaComp = horaActual;
+
+        if (horaComp < 6) horaComp += 24;
+
+        if (horaComp >= apertura && horaComp < cierre) {
+            mensaje = `🟢 Abierto ahora · Cierra 03:00`;
+        } else {
+            mensaje = "🔴 Cerrado · Abre 18:00";
+        }
+
+    } else {
+
+        mensaje = "🔴 Cerrado hoy";
+
+    }
+
+    estado.innerHTML = mensaje;
+}
+
+actualizarHorario();
+
+function cerrarPopup() {
+    document.getElementById("popupSolidario").style.display = "none";
+}
+
+</script>
+
 <!-- POPUP SOLIDARIO -->
 
 <div id="popupSolidario" 
-class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[9999] px-4">
 
   <div class="bg-gray-900 max-w-xl w-full rounded-2xl p-8 text-center relative border border-yellow-500 shadow-2xl">
-
-    <!-- BOTON CERRAR -->
 
     <button 
       onclick="cerrarPopup()"
@@ -537,7 +577,7 @@ class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-5
       Los días <strong>martes y jueves</strong> de los meses de 
       <strong>mayo, junio y julio</strong>, de 
       <strong>19:30 a 21:00 hs</strong>, estaremos entregando 
-      una <strong>vianda totalmente gratuita</strong> para todas las personas que lo necesiten.
+      una <strong>vianda totalmente gratuita</strong> para personas que lo necesiten.
 
     </p>
 
@@ -559,19 +599,6 @@ class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-5
   </div>
 
 </div>
-
-<script>
-
-function cerrarPopup() {
-  document.getElementById("popupSolidario").style.display = "none";
-}
-  
-svg{
-width:24px;
-height:24px;
-stroke-width:2.2;
-}
-</script>
 </body>
 </html>
 
