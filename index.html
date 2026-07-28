@@ -88,28 +88,69 @@ color:white;
 
 <script>
 
-function abrirModal() {
-    document.getElementById("modalInfo").style.display = "block";
+<script>
+
+function abrirModal(){
+    document.getElementById("modalInfo").style.display = "flex";
 }
 
-function cerrarModal() {
+function cerrarModal(){
     document.getElementById("modalInfo").style.display = "none";
 }
 
-// Abrir automáticamente 1 segundo después de cargar la página
-window.addEventListener("load", function () {
-    setTimeout(abrirModal, 1000);
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        abrirModal();
+
+    },600);
+
 });
 
-// Cerrar haciendo clic fuera del cartel
-window.addEventListener("click", function (e) {
-    const modal = document.getElementById("modalInfo");
-    if (e.target === modal) {
+window.addEventListener("click",function(e){
+
+    const modal=document.getElementById("modalInfo");
+
+    if(e.target===modal){
+
         cerrarModal();
+
     }
+
 });
 
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        cerrarModal();
+
+    }
+
+});
+
+ .modal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+justify-content:center;
+
+align-items:center;
+
+background:rgba(0,0,0,.75);
+
+backdrop-filter:blur(6px);
+
+z-index:99999;
+
+}
 </script>
+
 
  
 </style>
@@ -647,7 +688,7 @@ function cerrarPopup() {
 
         <h2>🏆 Empleados del Mes 🏆</h2>
 
-        <p style="margin-bottom:25px;color:#d1d5db;">
+        <p style="margin-bottom:0px;color:#d1d5db;">
             Nuestro jurado los eligió por su increíble rapidez para recorrer el restaurante.
         </p>
 
@@ -701,6 +742,26 @@ window.onclick = function(event){
 }
 
 </script>
+ <div id="modalInfo" class="modal">
+
+    <div class="modal-content">
+
+        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+
+        <h2>🏆 ¿Los reconoces? 🏆</h2>
+
+        <div class="modal-imagenes">
+            <img src="img/208337.jpg" alt="">
+            <img src="img/208339.jpg" alt="">
+        </div>
+
+        <p>
+            Gracias por visitarnos ❤️
+        </p>
+
+    </div>
+
+</div>
 </body>
 </html>
 
