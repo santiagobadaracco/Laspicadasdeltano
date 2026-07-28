@@ -86,69 +86,6 @@ stroke-width:2.2;
 color:white;
 }
 
-<script>
-
-<script>
-
-function abrirModal(){
-    document.getElementById("modalInfo").style.display = "flex";
-}
-
-function cerrarModal(){
-    document.getElementById("modalInfo").style.display = "none";
-}
-
-window.addEventListener("load",function(){
-
-    setTimeout(function(){
-
-        abrirModal();
-
-    },600);
-
-});
-
-window.addEventListener("click",function(e){
-
-    const modal=document.getElementById("modalInfo");
-
-    if(e.target===modal){
-
-        cerrarModal();
-
-    }
-
-});
-
-document.addEventListener("keydown",function(e){
-
-    if(e.key==="Escape"){
-
-        cerrarModal();
-
-    }
-
-});
-
- .modal{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-justify-content:center;
-
-align-items:center;
-
-background:rgba(0,0,0,.75);
-
-backdrop-filter:blur(6px);
-
-z-index:99999;
-
-}
 </script>
 
 
@@ -762,6 +699,72 @@ window.onclick = function(event){
     </div>
 
 </div>
+ <!-- POPUP PROMO 50% OFF -->
+
+<div id="popupPromo" 
+class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[9999] px-4">
+
+  <div class="bg-gray-900 max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl relative border border-yellow-500">
+
+    <!-- CERRAR -->
+
+    <button 
+    onclick="cerrarPromo()"
+    class="absolute top-3 right-4 text-white text-3xl font-bold z-10">
+    ×
+    </button>
+
+
+    <!-- IMAGENES -->
+
+    <div class="grid grid-cols-2 gap-2">
+
+      <img src="img/208339.jpg"
+      class="w-full h-56 object-cover">
+
+      <img src="img/208337.jpg"
+      class="w-full h-56 object-cover">
+
+    </div>
+
+
+    <!-- TEXTO -->
+
+    <div class="p-6 text-center">
+
+      <h2 class="text-5xl font-bold text-yellow-400 mb-3">
+        50% OFF
+      </h2>
+
+      <p class="text-gray-300 text-lg">
+      ¿LOS RECONOCES? 
+        <strong>Las Picadas del Tano</strong>.
+       Sufrimos un robo. Y es por eso que estamos dando un 50% OFF en todos los productos si tenes información valiosa que permita identificarlos.
+      </p>
+
+
+      <a href="https://wa.me/541133541614?text=Hola%20quiero%20consultar%20por%20la%20promo%2050%25%20OFF"
+      target="_blank"
+      class="inline-block mt-6 bg-green-600 px-6 py-3 rounded-lg font-bold">
+
+      Dar Información 
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function cerrarPromo(){
+document.getElementById("popupPromo").style.display="none";
+}
+
+</script>
 </body>
 </html>
 
